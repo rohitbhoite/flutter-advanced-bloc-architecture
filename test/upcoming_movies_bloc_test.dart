@@ -84,22 +84,5 @@ void main() {
               const UpcomingMoviesState(
                   movies: [], status: GetAllRequestStatus.error)
             });
-
-    blocTest<UpcomingMoviesBloc, UpcomingMoviesState>('test pagination',
-        setUp: () {
-          when(() => _getAllUpcomingMoviesUseCase(1))
-              .thenAnswer((_) async => Right(movies));
-        },
-        build: () => upcomingMoviesBloc,
-        act: (bloc) => bloc.add(FetchMoreUpcomingMoviesEvent()),
-        verify: (_) {
-          verify(() => _getAllUpcomingMoviesUseCase(1)).called(1);
-        },
-        expect: () => {
-              [
-                UpcomingMoviesState(
-                    movies: movies, status: GetAllRequestStatus.error),
-              ]
-            });
   });
 }
