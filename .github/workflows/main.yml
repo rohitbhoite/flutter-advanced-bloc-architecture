@@ -33,7 +33,7 @@ jobs:
       - name: Run Flutter Test and check percentage
         run: flutter test --coverage
       - name: Build APP BUNDLE
-        run: flutter build appbundle
+        run: flutter build appbundle --stacktrace
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
