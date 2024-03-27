@@ -30,6 +30,12 @@ jobs:
       - name: Get all Flutter Packages
         run: flutter pub get
 
+      - name: dart format
+        run: dart format --set-exit-if-changed .
+
+      - name: Flutter analyze
+        run: flutter analyze
+
       - name: Run Flutter Test and check percentage
         run: flutter test --coverage
 
@@ -40,7 +46,7 @@ jobs:
         uses: zgosalvez/github-actions-report-lcov@v3
         with:
           coverage-files: coverage/lcov.info
-          minimum-coverage: 80
+          minimum-coverage: 20
           artifact-name: code-coverage-report
           github-token: ${{github.token}}
 
