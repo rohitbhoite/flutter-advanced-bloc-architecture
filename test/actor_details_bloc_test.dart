@@ -41,7 +41,8 @@ void main() {
           verify(() => getActorDetailsUseCase(1)).called(1);
         },
         expect: () => {
-              const ActorDetailsState(actor: null, status: RequestStatus.loading),
+              const ActorDetailsState(
+                  actor: null, status: RequestStatus.loading),
               ActorDetailsState(actor: actor, status: RequestStatus.loaded)
             });
 
@@ -56,7 +57,8 @@ void main() {
           verify(() => getActorDetailsUseCase(1)).called(1);
         },
         expect: () => {
-              const ActorDetailsState(actor: null, status: RequestStatus.loading),
+              const ActorDetailsState(
+                  actor: null, status: RequestStatus.loading),
               const ActorDetailsState(actor: null, status: RequestStatus.error)
             });
   });

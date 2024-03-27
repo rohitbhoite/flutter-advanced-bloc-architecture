@@ -13,5 +13,4 @@ void main() async {
     path,
     (request) => request.reply(200, {'message': 'Success!'}),
   );
-
 }
