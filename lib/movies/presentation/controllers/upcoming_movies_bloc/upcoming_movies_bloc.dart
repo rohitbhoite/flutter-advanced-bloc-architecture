@@ -14,8 +14,6 @@ class UpcomingMoviesBloc
   int page = 1;
   UpcomingMoviesBloc(this._getAllUpcomingMoviesUseCase)
       : super(const UpcomingMoviesState()) {
-
-
     on<GetUpcomingMoviesEvent>(_getAllUpcomingMovies);
 
     on<FetchMoreUpcomingMoviesEvent>(_fetchMoreMovies);
@@ -40,12 +38,12 @@ class UpcomingMoviesBloc
   Future<void> _getMovies(Emitter<UpcomingMoviesState> emit) async {
     final result = await _getAllUpcomingMoviesUseCase(page);
     result.fold(
-          (l) => emit(
+      (l) => emit(
         state.copyWith(
           status: GetAllRequestStatus.error,
         ),
       ),
-          (r) {
+      (r) {
         page++;
         emit(
           state.copyWith(
@@ -61,12 +59,12 @@ class UpcomingMoviesBloc
       Emitter<UpcomingMoviesState> emit) async {
     final result = await _getAllUpcomingMoviesUseCase(page);
     result.fold(
-          (l) => emit(
+      (l) => emit(
         state.copyWith(
           status: GetAllRequestStatus.fetchMoreError,
         ),
       ),
-          (r) {
+      (r) {
         page++;
         return emit(
           state.copyWith(

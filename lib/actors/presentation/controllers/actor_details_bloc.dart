@@ -10,10 +10,10 @@ part 'actor_details_event.dart';
 part 'actor_details_state.dart';
 
 class ActorDetailsBloc extends Bloc<ActorDetailsEvent, ActorDetailsState> {
+  final GetActorDetailsUseCase _getActorDetailsUseCase;
 
-  final GetActorDetailsUseCase _getActorDetailsUseCase ;
-
-  ActorDetailsBloc(this._getActorDetailsUseCase) : super(const ActorDetailsState()) {
+  ActorDetailsBloc(this._getActorDetailsUseCase)
+      : super(const ActorDetailsState()) {
     on<GetActorDetailsEvent>(_getActorDetails);
   }
 

@@ -11,7 +11,7 @@ void main() async {
 
   dioAdapter.onGet(
     path,
-        (request) => request.reply(200, {'message': 'Success!'}),
+    (request) => request.reply(200, {'message': 'Success!'}),
   );
 
   final response = await dio.get(path);

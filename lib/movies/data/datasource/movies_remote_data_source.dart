@@ -113,10 +113,9 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getUpcomingMovies() async{
+  Future<List<MovieModel>> getUpcomingMovies() async {
     // TODO: implement getUpcomingMovies
-    final response =
-        await Dio().get(ApiConstants.getUpcomingMoviesPath);
+    final response = await Dio().get(ApiConstants.getUpcomingMoviesPath);
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
@@ -128,7 +127,7 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getAllUpcomingMovies(int page) async{
+  Future<List<MovieModel>> getAllUpcomingMovies(int page) async {
     // TODO: implement getAllUpcomingMovies
     final response =
         await Dio().get(ApiConstants.getAllUpcomingMoviesPath(page));

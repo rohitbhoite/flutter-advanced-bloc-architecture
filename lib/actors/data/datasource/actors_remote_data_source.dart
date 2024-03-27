@@ -9,9 +9,9 @@ abstract class ActorsRemoteDataSource {
   Future<Actor> getActorData(int actorId);
 }
 
-class ActorsRemoteDataSourceImpl implements  ActorsRemoteDataSource{
+class ActorsRemoteDataSourceImpl implements ActorsRemoteDataSource {
   @override
-  Future<Actor> getActorData(int actorId) async{
+  Future<Actor> getActorData(int actorId) async {
     // TODO: implement getActorData
     final response = await Dio().get(ApiConstants.getActorDetailsPath(actorId));
     if (response.statusCode == 200) {
@@ -22,5 +22,4 @@ class ActorsRemoteDataSourceImpl implements  ActorsRemoteDataSource{
       );
     }
   }
-
 }

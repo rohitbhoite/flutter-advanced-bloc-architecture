@@ -58,13 +58,12 @@ class MoviesWidget extends StatelessWidget {
   final List<Media> topRatedMovies;
   final List<Media> upcomingMovies;
 
-  const MoviesWidget({
-    super.key,
-    required this.nowPlayingMovies,
-    required this.popularMovies,
-    required this.topRatedMovies,
-    required this.upcomingMovies
-  });
+  const MoviesWidget(
+      {super.key,
+      required this.nowPlayingMovies,
+      required this.popularMovies,
+      required this.topRatedMovies,
+      required this.upcomingMovies});
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +72,11 @@ class MoviesWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ElevatedButton(onPressed: (){
-            context.goNamed(AppRoutes.actorDetailsRoute);
-          }, child: Text("Hi There")),
+          ElevatedButton(
+              onPressed: () {
+                context.goNamed(AppRoutes.actorDetailsRoute);
+              },
+              child: Text("Hi There")),
           CustomSlider(
             itemBuilder: (context, itemIndex, _) {
               return SliderCard(

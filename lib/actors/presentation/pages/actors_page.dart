@@ -48,13 +48,15 @@ class ActorDetailsWidget extends StatelessWidget {
       child: Column(
         children: [
           SafeArea(
-            child: Stack(children: [
-              SliderCardImage(imageUrl: actor.profileUrl),
-              Text(
-                actor.name,
-                style: textTheme.titleMedium,
-              )
-            ],),
+            child: Stack(
+              children: [
+                SliderCardImage(imageUrl: actor.profileUrl),
+                Text(
+                  actor.name,
+                  style: textTheme.titleMedium,
+                )
+              ],
+            ),
           )
         ],
       ),

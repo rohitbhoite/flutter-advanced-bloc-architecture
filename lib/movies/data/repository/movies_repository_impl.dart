@@ -64,7 +64,7 @@ class MoviesRepositoryImpl extends MoviesRespository {
   }
 
   @override
-  Future<Either<Failure, List<Media>>> getAllUpcomingMovies(int page) async{
+  Future<Either<Failure, List<Media>>> getAllUpcomingMovies(int page) async {
     try {
       final result =
           await _baseMoviesRemoteDataSource.getAllUpcomingMovies(page);

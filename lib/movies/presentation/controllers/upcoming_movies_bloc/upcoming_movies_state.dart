@@ -24,8 +24,8 @@ class UpcomingMoviesState extends Equatable {
 
   @override
   List<Object> get props => [
-    movies,
-    status,
-    message,
-  ];
+        movies,
+        status,
+        message,
+      ];
 }

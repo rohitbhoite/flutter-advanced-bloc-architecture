@@ -25,8 +25,8 @@ class ActorDetailsState extends Equatable {
 
   @override
   List<Object?> get props => [
-    actor,
-    status,
-    message,
-  ];
+        actor,
+        status,
+        message,
+      ];
 }

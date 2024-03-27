@@ -4,7 +4,7 @@ abstract class ActorDetailsEvent extends Equatable {
   const ActorDetailsEvent();
 }
 
-class GetActorDetailsEvent extends ActorDetailsEvent{
+class GetActorDetailsEvent extends ActorDetailsEvent {
   final int actorId;
 
   const GetActorDetailsEvent(this.actorId);

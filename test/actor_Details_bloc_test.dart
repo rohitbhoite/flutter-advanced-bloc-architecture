@@ -58,8 +58,8 @@ void main() {
           verify(() => _getActorDetailsUseCase(1)).called(1);
         },
         expect: () => {
-          ActorDetailsState(actor: null, status: RequestStatus.loading),
-          ActorDetailsState(actor: null, status: RequestStatus.error)
-        });
+              ActorDetailsState(actor: null, status: RequestStatus.loading),
+              ActorDetailsState(actor: null, status: RequestStatus.error)
+            });
   });
 }
