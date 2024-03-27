@@ -11,7 +11,7 @@ class GetActorDetailsUseCase extends BaseUseCase<Actor, int> {
   GetActorDetailsUseCase(this._baseActorsRepository);
 
   @override
-  Future<Either<Failure, Actor>> call(int actorId) async {
-    return await _baseActorsRepository.getActorData(actorId);
+  Future<Either<Failure, Actor>> call(int p) async {
+    return await _baseActorsRepository.getActorData(p);
   }
 }

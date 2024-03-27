@@ -5,8 +5,8 @@ import 'package:movies_app/actors/presentation/controllers/actor_details_bloc.da
 import 'package:movies_app/core/services/service_locator.dart';
 import 'package:movies_app/core/utils/enums.dart';
 
-import '../../../core/presentation/components/slider_card_image.dart';
-import '../../domain/entities/actor.dart';
+import 'package:movies_app/core/presentation/components/slider_card_image.dart';
+import 'package:movies_app/actors/domain/entities/actor.dart';
 
 class ActorView extends StatelessWidget {
   final int actorId;

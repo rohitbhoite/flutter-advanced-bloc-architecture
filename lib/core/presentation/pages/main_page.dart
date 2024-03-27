@@ -22,13 +22,12 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WillPopScope(
-        onWillPop: () async {
+      body: PopScope(
+        onPopInvoked: (val) {
           final String location = GoRouterState.of(context).location;
           if (!location.startsWith(moviesPath)) {
             _onItemTapped(0, context);
           }
-          return true;
         },
         child: widget.child,
       ),

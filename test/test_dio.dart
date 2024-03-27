@@ -14,7 +14,4 @@ void main() async {
     (request) => request.reply(200, {'message': 'Success!'}),
   );
 
-  final response = await dio.get(path);
-
-  print(response.data); // {message: Success!}
 }

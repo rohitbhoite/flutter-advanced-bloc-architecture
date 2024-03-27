@@ -16,17 +16,15 @@ class MockActorsRepository extends Mock implements ActorsRepository {}
 void main() {
   group('Upcoming movies bloc', () {
     late ActorDetailsBloc actorDetailsBloc;
-    late GetActorDetailsUseCase _getActorDetailsUseCase;
-    late ActorsRepository _actorsRepository;
+    late GetActorDetailsUseCase getActorDetailsUseCase;
     setUp(() {
-      _getActorDetailsUseCase = MockActorDetailsUseCase();
-      actorDetailsBloc = ActorDetailsBloc(_getActorDetailsUseCase);
-      _actorsRepository = MockActorsRepository();
+      getActorDetailsUseCase = MockActorDetailsUseCase();
+      actorDetailsBloc = ActorDetailsBloc(getActorDetailsUseCase);
     });
-    Actor actor = Actor(name: "name", profileUrl: "profileUrl");
+    Actor actor = const Actor(name: 'name', profileUrl: 'profileUrl');
 
     test('inital state is correct',
-        () => {expect(actorDetailsBloc.state, ActorDetailsState())});
+        () => {expect(actorDetailsBloc.state, const ActorDetailsState())});
 
     // test('loaded state is correct', () => {
     //   upcomingMoviesBloc..add(GetUpcomingMoviesEvent)
@@ -34,32 +32,32 @@ void main() {
     // });
     blocTest<ActorDetailsBloc, ActorDetailsState>('test success',
         setUp: () {
-          when(() => _getActorDetailsUseCase(1))
+          when(() => getActorDetailsUseCase(1))
               .thenAnswer((_) async => Right(actor));
         },
         build: () => actorDetailsBloc,
-        act: (bloc) => bloc.add(GetActorDetailsEvent(1)),
+        act: (bloc) => bloc.add(const GetActorDetailsEvent(1)),
         verify: (_) {
-          verify(() => _getActorDetailsUseCase(1)).called(1);
+          verify(() => getActorDetailsUseCase(1)).called(1);
         },
         expect: () => {
-              ActorDetailsState(actor: null, status: RequestStatus.loading),
+              const ActorDetailsState(actor: null, status: RequestStatus.loading),
               ActorDetailsState(actor: actor, status: RequestStatus.loaded)
             });
 
     blocTest<ActorDetailsBloc, ActorDetailsState>('test failure',
         setUp: () {
-          when(() => _getActorDetailsUseCase(1))
-              .thenAnswer((_) async => left(const ServerFailure("error")));
+          when(() => getActorDetailsUseCase(1))
+              .thenAnswer((_) async => left(const ServerFailure('error')));
         },
         build: () => actorDetailsBloc,
         act: (bloc) => bloc.add(const GetActorDetailsEvent(1)),
         verify: (_) {
-          verify(() => _getActorDetailsUseCase(1)).called(1);
+          verify(() => getActorDetailsUseCase(1)).called(1);
         },
         expect: () => {
-              ActorDetailsState(actor: null, status: RequestStatus.loading),
-              ActorDetailsState(actor: null, status: RequestStatus.error)
+              const ActorDetailsState(actor: null, status: RequestStatus.loading),
+              const ActorDetailsState(actor: null, status: RequestStatus.error)
             });
   });
 }

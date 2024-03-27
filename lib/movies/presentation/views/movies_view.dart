@@ -76,7 +76,7 @@ class MoviesWidget extends StatelessWidget {
               onPressed: () {
                 context.goNamed(AppRoutes.actorDetailsRoute);
               },
-              child: Text("Hi There")),
+              child: const Text('Hi There')),
           CustomSlider(
             itemBuilder: (context, itemIndex, _) {
               return SliderCard(

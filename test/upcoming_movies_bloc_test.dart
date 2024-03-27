@@ -18,38 +18,25 @@ class MockMoviesRepository extends Mock implements MoviesRespository {}
 void main() {
   group('Upcoming movies bloc', () {
     late UpcomingMoviesBloc upcomingMoviesBloc;
-    late GetAllUpcomingMoviesUseCase _getAllUpcomingMoviesUseCase;
-    late MoviesRespository _movieRepository;
+    late GetAllUpcomingMoviesUseCase getAllUpcomingMoviesUseCase;
     List<Media> movies = [
       const Media(
           tmdbID: 1,
-          title: "title",
-          posterUrl: "posterUrl",
-          backdropUrl: "backdropUrl",
+          title: 'title',
+          posterUrl: 'posterUrl',
+          backdropUrl: 'backdropUrl',
           voteAverage: 0.0,
-          releaseDate: "releaseDate",
-          overview: "overview",
-          isMovie: true)
-    ];
-    List<Media> movies1 = [
-      const Media(
-          tmdbID: 2,
-          title: "title",
-          posterUrl: "posterUrl",
-          backdropUrl: "backdropUrl",
-          voteAverage: 0.0,
-          releaseDate: "releaseDate",
-          overview: "overview",
+          releaseDate: 'releaseDate',
+          overview: 'overview',
           isMovie: true)
     ];
     setUp(() {
-      _getAllUpcomingMoviesUseCase = MockUpcomingMoviesUseCase();
-      upcomingMoviesBloc = UpcomingMoviesBloc(_getAllUpcomingMoviesUseCase);
-      _movieRepository = MockMoviesRepository();
+      getAllUpcomingMoviesUseCase = MockUpcomingMoviesUseCase();
+      upcomingMoviesBloc = UpcomingMoviesBloc(getAllUpcomingMoviesUseCase);
     });
 
     test('inital state is correct',
-        () => {expect(upcomingMoviesBloc.state, UpcomingMoviesState())});
+        () => {expect(upcomingMoviesBloc.state, const UpcomingMoviesState())});
 
     // test('loaded state is correct', () => {
     //   upcomingMoviesBloc..add(GetUpcomingMoviesEvent)
@@ -57,13 +44,13 @@ void main() {
     // });
     blocTest<UpcomingMoviesBloc, UpcomingMoviesState>('test',
         setUp: () {
-          when(() => _getAllUpcomingMoviesUseCase(1))
+          when(() => getAllUpcomingMoviesUseCase(1))
               .thenAnswer((_) async => Right(movies));
         },
         build: () => upcomingMoviesBloc,
         act: (bloc) => bloc.add(GetUpcomingMoviesEvent()),
         verify: (_) {
-          verify(() => _getAllUpcomingMoviesUseCase(1)).called(1);
+          verify(() => getAllUpcomingMoviesUseCase(1)).called(1);
         },
         expect: () => {
               UpcomingMoviesState(
@@ -72,13 +59,13 @@ void main() {
 
     blocTest<UpcomingMoviesBloc, UpcomingMoviesState>('test failure',
         setUp: () {
-          when(() => _getAllUpcomingMoviesUseCase(1))
-              .thenAnswer((_) async => Left(ServerFailure("123")));
+          when(() => getAllUpcomingMoviesUseCase(1))
+              .thenAnswer((_) async => const Left(ServerFailure('123')));
         },
         build: () => upcomingMoviesBloc,
         act: (bloc) => bloc.add(GetUpcomingMoviesEvent()),
         verify: (_) {
-          verify(() => _getAllUpcomingMoviesUseCase(1)).called(1);
+          verify(() => getAllUpcomingMoviesUseCase(1)).called(1);
         },
         expect: () => {
               const UpcomingMoviesState(

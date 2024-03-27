@@ -1,8 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:movies_app/core/domain/entities/media.dart';
 import 'package:movies_app/core/resources/app_router.dart';
@@ -38,7 +36,7 @@ void main() {
     // var similarFInder=find.byKey(ValueKey("similar_section")).last;
     // await widgetTester.scrollUntilVisible(similarFInder, 100);
     // expect(similarFInder, findsOneWidget);
-    final bottomNavbar = find.text("Watchlist");
+    final bottomNavbar = find.text('Watchlist');
     widgetTester.tap(bottomNavbar);
     widgetTester.pumpAndSettle();
     final watchlistEmptyTextFinder = find.text('Watchlist is empty');

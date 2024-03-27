@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movies_app/actors/domain/entities/actor.dart';
 import 'package:movies_app/actors/domain/usecases/get_actor_details_usecase.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movies_app/core/utils/enums.dart';
 

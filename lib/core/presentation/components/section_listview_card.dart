@@ -18,7 +18,7 @@ class SectionListViewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return SizedBox(
-      key: ValueKey("list_item"),
+      key: const ValueKey('list_item'),
       width: AppSize.s120,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

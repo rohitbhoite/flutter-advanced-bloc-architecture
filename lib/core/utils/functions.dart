@@ -197,7 +197,7 @@ void navigateToDetailsView(BuildContext context, Media media) {
 Widget getSimilarSection(List<Media>? similar) {
   if (similar != null && similar.isNotEmpty) {
     return Column(
-      key: ValueKey("similar_section"),
+      key: const ValueKey('similar_section'),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionTitle(title: AppStrings.similar),

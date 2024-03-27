@@ -8,7 +8,7 @@ import 'package:movies_app/core/resources/app_strings.dart';
 import 'package:movies_app/core/resources/app_theme.dart';
 import 'package:movies_app/watchlist/presentation/controllers/watchlist_bloc/watchlist_bloc.dart';
 
-import 'core/utils/bloc_cubit_observer.dart';
+import 'package:movies_app/core/utils/bloc_cubit_observer.dart';
 
 void main() async {
   await Hive.initFlutter();

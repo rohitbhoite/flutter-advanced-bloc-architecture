@@ -43,7 +43,7 @@ import 'package:movies_app/watchlist/domain/usecases/get_watchlist_items_usecase
 import 'package:movies_app/watchlist/domain/usecases/remove_watchlist_item_usecase.dart';
 import 'package:movies_app/watchlist/presentation/controllers/watchlist_bloc/watchlist_bloc.dart';
 
-import '../../movies/presentation/controllers/upcoming_movies_bloc/upcoming_movies_bloc.dart';
+import 'package:movies_app/movies/presentation/controllers/upcoming_movies_bloc/upcoming_movies_bloc.dart';
 
 final sl = GetIt.instance;
 
