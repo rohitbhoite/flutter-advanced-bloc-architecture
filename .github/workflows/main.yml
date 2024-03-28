@@ -91,5 +91,5 @@ jobs:
         with:
           appId: ${{secrets.FIREBASE_IOS_APP_ID}}
           file: Runner.app
+          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
           groups: testers
-          token: ${{secrets.FIREBASE_TOKEN}}
