@@ -84,12 +84,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v2
         with:
-          name:
+          name: Runner
 
       - name: Upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.FIREBASE_IOS_APP_ID}}
-          file: Runner.app
+          file: Runner
           serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
           groups: testers
