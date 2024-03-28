@@ -50,21 +50,21 @@ jobs:
           artifact-name: code-coverage-report
           github-token: ${{github.token}}
 
-      - name: Build APP BUNDLE
-        run: flutter build apk --build-number=${{github.run_number}}
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: release-apk
-          path: build/app/outputs/apk/release/*
-
-      - name: Firebase App Distribution for Android
-        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
-          groups: testers
+#      - name: Build APP BUNDLE
+#        run: flutter build apk --build-number=${{github.run_number}}
+#
+#      - name: Upload a Build Artifact
+#        uses: actions/upload-artifact@v3.1.0
+#        with:
+#          name: release-apk
+#          path: build/app/outputs/apk/release/*
+#
+#      - name: Firebase App Distribution for Android
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+#        with:
+#          appId: ${{secrets.FIREBASE_APP_ID}}
+#          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
+#          groups: testers
           file: build/app/outputs/flutter-apk/app-release.apk
 
       - name: Build ios App
